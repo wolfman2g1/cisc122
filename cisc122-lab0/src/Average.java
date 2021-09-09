@@ -1,19 +1,31 @@
 import java.util.Scanner;
+/**
+ * 
+ * @author rjones
+ * 09-10-2021
+ * Takes input from the user and performs mathematical operations on the input
+ *
+ */
+
 
 public class Average {
 	private int[] data;
 	private double mean;
-
+/*
+ * 
+ */
 	public Average() {
 		final String MSG = "Please enter a score";
 		data = new int[5];
+		Scanner sc = new Scanner(System.in);
 		// to account for 0 vs 1 we set i to 1
 		for (int i = 1; i < 5; i++) {
 			System.out.println(MSG + " " + i);
-			Scanner sc = new Scanner(System.in);
+			
 			int score = sc.nextInt();
 			data[i] = score;
 		}
+		sc.close();
 		calculateMean();
 		selectionSort();
 
@@ -46,7 +58,13 @@ public class Average {
 		
 	}
 	public String toString() {
-		return null;
+		int l = data.length;
+		String order = " ";
+		for (int i=l-1; i >0; i--) {
+			order += data[i] + " " + "Mean" + " " +  mean;
+		}
+		return order;
+		
 	}
 
 }
