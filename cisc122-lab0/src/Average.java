@@ -18,9 +18,9 @@ public class Average {
 		final String MSG = "Please enter a score";
 		data = new int[5];
 		Scanner sc = new Scanner(System.in);
-		// to account for 0 vs 1 we set i to 1
-		for (int i = 1; i < 5; i++) {
-			System.out.println(MSG + " " + i);
+		
+		for (int i = 0; i < 5; i++) {
+			System.out.println(MSG + " " + (i+1));
 			
 			int score = sc.nextInt();
 			data[i] = score;
@@ -60,10 +60,11 @@ public class Average {
 	public String toString() {
 		int l = data.length;
 		String order = " ";
-		for (int i=l-1; i >0; i--) {
-			order += data[i] + " " + "Mean" + " " +  mean;
+		for (int i=l-1; i >=0; i--) {
+			order += data[i] ;
 		}
-		return order;
+		System.out.println("Mean" + " " + mean);
+		return  order ;
 		
 	}
 
