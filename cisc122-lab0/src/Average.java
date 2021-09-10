@@ -52,7 +52,7 @@ public class Average {
 		int n = data.length;
 		for (int j=0; j<5; j++) {
 			
-			 temp += data[j];
+			 temp += data[j]; //Accumulator 
 		}
 		 mean = temp/n;
 		
@@ -61,7 +61,7 @@ public class Average {
 		int l = data.length;
 		String order = " ";
 		for (int i=l-1; i >=0; i--) {
-			order += data[i] ;
+			order += " " +  data[i] ;
 		}
 		System.out.println("Mean" + " " + mean);
 		return  order ;
