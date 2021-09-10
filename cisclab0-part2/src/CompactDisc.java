@@ -13,14 +13,14 @@ public class CompactDisc {
 		// ADD LINES FOR TASK #3 HERE
 		// Declare an array of Song objects, called cd,
 		// with a size of 6
-		String cd[] = new String[6];
+		Song[] cd = new Song[6];
 
 		for (int i = 0; i < cd.length; i++) {
 
 			title = input.readLine();
 			artist = input.readLine();
 			Song music = new Song(title, artist);
-			cd[i] = music.toString();
+			cd[i] = music;
 
 		}
 
