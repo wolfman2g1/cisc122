@@ -16,23 +16,17 @@ public class CompactDisc {
 		String cd[] = new String[6];
 
 		for (int i = 0; i < cd.length; i++) {
-			while (input.readLine() != null) {
-				title = input.readLine();
-				cd[i] = title;
-				artist = input.readLine();
-				cd[i + 1] = artist;
-				System.out.println(cd[i] + " " + cd[i + 1]);
-			}
 
-			// ADD LINES FOR TASK #3 HERE // Fill the array by creating a new song with //
-			// the title and artist and storing it in the // appropriate position in the
-			// array
+			title = input.readLine();
+			artist = input.readLine();
+			Song music = new Song(title, artist);
+			cd[i] = music.toString();
 
 		}
 
 		System.out.println("Contents of Classics:");
-		for (int i = 0; i <= cd.length; i++) {
-			
+		for (int i = 0; i < cd.length; i++) {
+			System.out.println(cd[i]);
 
 		}
 	}
