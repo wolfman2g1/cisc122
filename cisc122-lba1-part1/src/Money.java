@@ -1,15 +1,18 @@
-/** This class represents nonnegative amounts of money. */
+/**
+ * This class represents nonnegative amounts of money.
+ */
+
 public class Money {
-	// The number of dollars
-	private long dollars;
-	// The number of cents
-	private long cents;
+
+	private long dollars; // The number of dollars
+	private long cents; // The number of cents
 
 	/**
 	 * Constructor
 	 * 
 	 * @param amount The amount in decimal format.
 	 */
+
 	public Money(double amount) {
 		if (amount < 0) {
 			System.out.println("Error: Negative amounts " + "of money are not allowed.");
@@ -23,9 +26,9 @@ public class Money {
 
 // ADD LINES FOR TASK #1 HERE// Document and write a copy constructor   
 	// copy constructor
-	public Money(Money firstObject) {
-		this.dollars = firstObject.dollars;
-		this.cents = firstObject.cents;
+	public Money(Money obj) {
+		this.dollars = obj.dollars;
+		this.cents = obj.cents;
 	}
 
 	/**
@@ -97,19 +100,20 @@ public class Money {
 		}
 
 	}
+
 // Document  and write a toString method 
 	/**
 	 * This method returns string value of the instance variable
+	 * 
 	 * @return current value of dollars and cents
 	 * 
 	 */
-public String toString() {
-	
-	if(cents < 10) {
-		return "$" + dollars + "." + "0" + cents;
+	public String toString() {
+
+		if (cents < 10) {
+			return "$" + dollars + "." + "0" + cents;
+		} else {
+			return "$" + dollars + "." + cents;
+		}
 	}
-	else {
-		return "$" + dollars + "." + cents;
-	}
-}
 }
