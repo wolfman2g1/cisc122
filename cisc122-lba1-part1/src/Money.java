@@ -20,23 +20,14 @@ public class Money {
 			cents = allCents % 100;
 		}
 	}
+
+// ADD LINES FOR TASK #1 HERE// Document and write a copy constructor   
 	// copy constructor
 	public Money(Money firstObject) {
 		this.dollars = firstObject.dollars;
 		this.cents = firstObject.cents;
 	}
-	// checks whether the instance variables of each object are equal
-	public boolean equals(Money firstObject) {
-		if (this.dollars == firstObject.dollars  && this.cents == firstObject.cents) {
-			return true;
-		}
-		else {
-			return false;
-		}
-		
-	}
 
-// ADD LINES FOR TASK #1 HERE// Document and write a copy constructor   
 	/**
 	 * The add method
 	 * 
@@ -95,6 +86,30 @@ public class Money {
 			value = 0;
 		return value;
 	}
+
+// ADD LINES FOR TASK #2 HERE // Document and write an equals method
+//checks whether the instance variables of each object are equal
+	public boolean equals(Money firstObject) {
+		if (this.dollars == firstObject.dollars && this.cents == firstObject.cents) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+// Document  and write a toString method 
+	/**
+	 * This method returns string value of the instance variable
+	 * @return current value of dollars and cents
+	 * 
+	 */
+public String toString() {
+	
+	if(cents < 10) {
+		return "$" + dollars + "." + "0" + cents;
+	}
+	else {
+		return "$" + dollars + "." + cents;
+	}
 }
-// ADD LINES FOR TASK #2 HERE // Document and write an equals method // Document
-// and write a toString method }
+}
