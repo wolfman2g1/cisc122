@@ -116,4 +116,23 @@ public class Money {
 			return "$" + dollars + "." + cents;
 		}
 	}
+
+	/**
+	 * getter for dollars
+	 * 
+	 * @return dollars
+	 */
+	public long getDollars() {
+
+		return this.dollars;
+	}
+
+	/**
+	 * getter for dollars
+	 * 
+	 * @return cents
+	 */
+	public long getCents() {
+		return this.cents;
+	}
 }

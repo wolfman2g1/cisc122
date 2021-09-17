@@ -54,12 +54,12 @@ public class CreditCard {
 	public String getPersonals() {
 		return owner.toString();
 	}
-
+ 
 	/* add to the balance every time something is charged  only if the balance is not greater than the credit limit
 	 * 
 	 */
 	public void charge(Money amount) {
-		if (balance.) {
+		if ((balance.getDollars() + balance.getCents())+ (amount.getDollars() + amount.getCents()) >= (creditLimit.getDollars() + creditLimit.getCents())) {
 			System.out.println(" Exceeds credit limit");
 		}
 		else {
