@@ -52,7 +52,9 @@ public class TwoDimDriver extends Application {
                     System.exit(0);
                 }
                 else {
-                    dim = reader.readLine();
+                   String[] string_dim = reader.readLine().split("");
+                   int[]  int_dim = new int[] { Integer.parseInt(string_dim[0]), Integer.parseInt(string_dim[1]) };
+                   TwoDimArray.setBounds(int_dim);
                 }
 
 

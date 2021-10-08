@@ -2,10 +2,20 @@
 package TwoDimArray;
 
 public class TwoDimArray {
-    private double twoDimArray[][] = new double[6][6];
+    private double twoDimArray[][];
     private double total;
     private double avg;
+    private int row_length;
+    private int col_length;
 
+    /**
+     * sets the length of twoDimArray
+     * @param a int[][]
+     */
+    public static void setBounds(int[] a) {
+        twoDimArray = new double[a[0]][a[1]];
+
+    }
     public void loadArray (){
     }
 }
