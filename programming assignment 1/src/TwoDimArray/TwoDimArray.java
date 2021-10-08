@@ -1,14 +1,19 @@
+/*
+package TwoDimArray;
+
 public class TwoDimArray {
     private double twoDimArray[][] = new double[6][6];
     private double total;
     private double avg;
 
-    /**
+    */
+/**
      * iterates thrgouh the arrary and returns the total
      *
      * @param a
      * @return total
-     */
+     *//*
+
     public double getTotal(double[][] a) {
         // loop through the array and add the values
         for (int row = 0; row < a.length; row++) {
@@ -19,12 +24,14 @@ public class TwoDimArray {
         return total;
     }
 
-    /**
+    */
+/**
      * takes the avgerage of all the elements in the 2d array
      *
      * @param b array
      * @return avg
-     */
+     *//*
+
     public double getAverage(double[][] b) {
         int sum = 0, count = 0;
         for (int row = 0; row < b.length; row++) {
@@ -39,11 +46,13 @@ public class TwoDimArray {
         return avg;
     }
 
-    /**
+    */
+/**
      * @param c 2d array of double
      * @param d int for subscript of column
      * @return colTotal the total of the elements in a column
-     */
+     *//*
+
     public double getColumnTotal(double[][] c, int d) {
         int colTotal = 0;
         for (int row = 0; row < c.length; row++) {
@@ -56,13 +65,15 @@ public class TwoDimArray {
 
     }
 
-    /**
+    */
+/**
      * find the highest value in the row
      *
      * @param e array of doubles
      * @param f int for subscript
      * @return the lowest value in the row
-     */
+     *//*
+
     public double getHighestInRow(double[][] e, int f) {
         for (int i = f; i < e[i].length; ) {
             for (int j = 0; j < e[i].length; j++) {
@@ -76,13 +87,15 @@ public class TwoDimArray {
 
     }
 
-    /**
+    */
+/**
      * find the lowest value in the row
      *
      * @param g array of doublw
      * @param h int for supcript to search
      * @return lowest value
-     */
+     *//*
+
     public double getLowestInRow(double[][] g, int h) {
         for (int i = f; i < e[i].length; ) {
             for (int j = 0; j < e[i].length; j++) {
@@ -146,18 +159,21 @@ public class TwoDimArray {
     }
 
     public double findValue(double) {
-
+        return 0.0;
     }
+
 
     public double replace(double) {
 
+return 0.0;
     }
 
     public double replaceAll(double) {
-
+return 0.0;
     }
 
     public void loadArray() {
 
     }
 }
+*/
