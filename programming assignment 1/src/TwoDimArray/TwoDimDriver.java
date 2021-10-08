@@ -11,7 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import sun.plugin2.message.JavaObjectOpMessage;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 
 import java.io.FileNotFoundException;
@@ -43,20 +45,25 @@ public class TwoDimDriver extends Application {
         {
             try {
                 String file = b1.getText();
-                //check for empty string
-                if (file == "") {
-                    t1.setText("You must enter a filename");
-                } else {
-                    BufferedReader reader = new BufferedReader(new FileReader(file));
+
+                BufferedReader reader = new BufferedReader(new FileReader(file)); // open the file
+                if (reader.readLine() == null) {  // if the file is empty  send an alert and exit
+                    JOptionPane.showMessageDialog(null, "This file is empty");
+                    System.exit(0);
+                }
+                else {
+                    dim = reader.readLine();
                 }
 
 
-            } catch (FileNotFoundException e) {
-                t1.setText("Something went wrong!");
+            } catch (FileNotFoundException e) { // if the file isn't found send alert and exit
+                JOptionPane.showMessageDialog(null, "File Not found!");
+
                 System.exit(0);
-            }
-            catch(Exception e) {
-                t1.setText("Something went wrong!");
+            } catch (Exception e) { // anything else wrong send and alert and exit
+                JOptionPane.showMessageDialog(null, "Something went horribly wrong, exiting!");
+                System.exit(0);
+
 
             }
         });

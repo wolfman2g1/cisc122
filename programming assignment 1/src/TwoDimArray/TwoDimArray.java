@@ -1,4 +1,4 @@
-/*
+
 package TwoDimArray;
 
 public class TwoDimArray {
@@ -6,13 +6,15 @@ public class TwoDimArray {
     private double total;
     private double avg;
 
-    */
+    public void loadArray (){
+    }
+}
 /**
      * iterates thrgouh the arrary and returns the total
      *
      * @param a
      * @return total
-     *//*
+     *//**
 
     public double getTotal(double[][] a) {
         // loop through the array and add the values
