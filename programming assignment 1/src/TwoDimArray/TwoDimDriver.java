@@ -19,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TwoDimDriver extends Application {
@@ -58,12 +59,12 @@ public class TwoDimDriver extends Application {
                 } else {
                     String[] string_dim = reader.readLine().split(" ");
                     int[] int_dim = new int[]{Integer.parseInt(string_dim[0]), Integer.parseInt(string_dim[1])};
-                    TwoDimArray.setBounds(int_dim);
+                    TwoDimArray array = new TwoDimArray(int_dim); // use the constructor to set this
                     while (reader.readLine() != null) {
                         String[] lines = reader.readLine().split(" ");
-                        data = new double[]{Double.parseDouble(lines[0]), Double.parseDouble(lines[1])};
+                        data = new double[]{Double.parseDouble(lines[0]), Double.parseDouble(lines[1])}; // TODO change this to a loop because we can't assume array sizer
                         // pass this to the loadArray method to populate the array
-                        TwoDimArray.loadArray(data);
+                        array.loadArray(data);
 
                     }
 
@@ -98,27 +99,36 @@ public class TwoDimDriver extends Application {
     }
 
     /**
-     *
      * @throws Exception
      */
     public void doWork() throws Exception {
+        TwoDimArray array2 = new TwoDimArray();
         // get the total elements in the array;
-        double num_elements = TwoDimArray.getTotal();
+        double num_elements = array2.getTotal();
         // print the total to std out
         System.out.println(" There are" + " " + num_elements + " " + " in the array " + "\n");
         // print the average of all elements in the array to std out
-        double avg = TwoDimArray.getAverage();
+        double avg = array2.getAverage();
         System.out.println(" The average of all elements is" + " " + avg + " \n");
         //Get the total of all elements in  a column
         Scanner sc = new Scanner(System.in);
-        int col_num = sc.nextInt();
-        double col_total = TwoDimArray.getColumnTotal(col_num);
-        System.out.println(" The total of the column  is" + " " + col_total + " \n");
-        // get the highest number in the row
-         int row_num = sc.nextInt();
-        double highest_num = TwoDimArray.getHighestInRow(row_num);
-        System.out.println(" The highest number in the row  is" + " " + highest_num + " \n");
 
+        try {
+
+            int col_num = sc.nextInt();
+            double col_total = array2.getColumnTotal(col_num);
+            System.out.println(" The total of the column  is" + " " + col_total + " \n");
+            // get the highest number in the row
+            int row_num = sc.nextInt();
+            double highest_num = array2.getHighestInRow(row_num);
+            System.out.println(" The highest number in the row  is" + " " + highest_num + " \n");
+        } // end try block
+        catch (InputMismatchException e) {
+            System.out.println(" You entered the incorrect type, must be a number" + "\n");
+            System.out.println(e.getMessage());
+            sc.nextInt();
+
+        } // end catch
 
     }
 
