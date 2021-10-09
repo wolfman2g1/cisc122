@@ -1,10 +1,14 @@
 
-package TwoDimArray;
+package com.rjones.cisc122;
 
+/**
+ * This class handles all the business logic for the TwoDimDriver application
+ * @author Ryan Jones
+ * @version 1.0 Oct 2021
+ */
 public class TwoDimArray {
     private static double[][] twoDimArray;
     private static double total = 0.0;
-    private static double avg = 0.0;
     private static int row_size;
     private static int col_size;
 
@@ -17,7 +21,7 @@ public class TwoDimArray {
 
     /**
      * takes an int array and sets up the twoDim array and initialized the row_size and col_size instance variables
-     * @param a
+     * @param a int array to be used to set up 2D array
      */
     public  TwoDimArray(int[] a) {
         twoDimArray = new double[a[0]][a[1]];
@@ -42,7 +46,7 @@ public class TwoDimArray {
     /**
      * iterates thrgouh the arrary and returns the total
      *
-     * @return
+     * @return the total for all values in the array
      */
     public  double getTotal() {
 
@@ -58,7 +62,7 @@ public class TwoDimArray {
     /**
      * takes the average of all the elements in the 2d array
      *
-     * @return avg
+     * @return avg the average of all elements in the 2D array
      */
 
     public  double getAverage() {
@@ -71,7 +75,7 @@ public class TwoDimArray {
 
             }
         }
-        avg = sum / count;
+        double avg = sum / count;
         return avg;
     }
 
@@ -108,7 +112,7 @@ public class TwoDimArray {
     /**
      * Looks for the lowest number in the row passed by calling function
      *
-     * @param f
+     * @param f sets the row to be searched
      * @return lowest in row
      */
     public  double getLowestInRow(int f) {
@@ -189,6 +193,7 @@ public class TwoDimArray {
 
     /**
      * this method finds a number in the array
+     * @param check the value to serarch for
      * @return true or false if value is present
      */
     public  boolean findValue(double check) {

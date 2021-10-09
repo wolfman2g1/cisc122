@@ -1,8 +1,12 @@
-package TwoDimArray;
+/**
+ * @author Ryan Jones
+ * @version 1.0 Oct 2021
+ * This applcation reads the first a file that sets the dimensions of a 2d array, then reads the remaining lines to
+ * load the array with values
+ */
+package com.rjones.cisc122;
 
 import javafx.application.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.layout.HBox;
@@ -11,14 +15,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import sun.plugin2.message.JavaObjectOpMessage;
 
 import javax.swing.*;
 import java.io.BufferedReader;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -34,8 +36,8 @@ public class TwoDimDriver extends Application {
     /**
      * This sets up the stage
      *
-     * @param stage
-     * @throws Exception
+     * @param stage sets up the stage to be displayed
+     * @throws Exception generic catch all for any exception not explicitly handled
      * @throws FileNotFoundException if the file isn't found
      */
 
@@ -99,7 +101,8 @@ public class TwoDimDriver extends Application {
     }
 
     /**
-     * @throws Exception
+     * @throws Exception handles genric exceptions
+     * @throws InputMismatchException fires if the user doesn't enter an int
      */
     public void doWork() throws Exception {
         TwoDimArray array2 = new TwoDimArray();
