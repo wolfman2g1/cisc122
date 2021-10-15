@@ -101,7 +101,7 @@ public class TwoDimArray {
         for (int i = 0; i < ROW_SIZE; i++) {
             final int COL_SIZE = twoDimArray[f].length;
             for (int j = 0; j < COL_SIZE; j++) {
-                if (highest > twoDimArray[f][j]) {
+                if (twoDimArray[f][j] > highest  ) {
                     highest = twoDimArray[f][j];
                 }
             }
@@ -116,12 +116,12 @@ public class TwoDimArray {
      * @return lowest in row
      */
     public  double getLowestInRow(int f) {
-        double lowest = 0;
+        double lowest = twoDimArray[0][0]; // set to the first index and compare from there
         final int ROW_SIZE = twoDimArray.length;
         for (int i = 0; i < ROW_SIZE; i++) {
             final int COL_SIZE = twoDimArray[f].length;
             for (int j = 0; j < COL_SIZE; j++) {
-                if (lowest < twoDimArray[f][j]) {
+                if (twoDimArray[f][j] < lowest ) {
                     lowest = twoDimArray[f][j];
                 }
             }

@@ -1,9 +1,4 @@
-/**
- * @author Ryan Jones
- * @version 1.0 Oct 2021
- * This applcation reads the first a file that sets the dimensions of a 2d array, then reads the remaining lines to
- * load the array with values
- */
+
 package com.rjones.cisc122;
 
 import javafx.application.*;
@@ -24,6 +19,12 @@ import java.io.FileReader;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * @author Ryan Jones
+ * @version 1.0 Oct 2021
+ * This applcation reads the first a file that sets the dimensions of a 2d array, then reads the remaining lines to
+ * load the array with values
+ */
 public class TwoDimDriver extends Application {
     private double[] data;
 
@@ -37,7 +38,7 @@ public class TwoDimDriver extends Application {
      * This sets up the stage
      *
      * @param stage sets up the stage to be displayed
-     * @throws Exception generic catch all for any exception not explicitly handled
+     * @throws Exception             generic catch all for any exception not explicitly handled
      * @throws FileNotFoundException if the file isn't found
      */
 
@@ -62,9 +63,17 @@ public class TwoDimDriver extends Application {
                     String[] string_dim = reader.readLine().split(" ");
                     int[] int_dim = new int[]{Integer.parseInt(string_dim[0]), Integer.parseInt(string_dim[1])};
                     TwoDimArray array = new TwoDimArray(int_dim); // use the constructor to set this
-                    while (reader.readLine() != null) {
-                        String[] lines = reader.readLine().split(" ");
-                        data = new double[]{Double.parseDouble(lines[0]), Double.parseDouble(lines[1])}; // TODO change this to a loop because we can't assume array sizer
+                    String line_num = reader.readLine(); // this contains the entire line
+
+
+                    while (line_num != null) {
+                        /// Todo need to put the contents of the line into a column.
+                        for ( int i=0; i++){
+                            // may be use a counter to keep track of the line numbers and use as an index for the array
+                        }
+                            // TODO this is wrong.
+                        data = new double[]{Double.parseDouble(line_num[0]), Double.parseDouble(line_num[1])}; // TODO change this to a loop because we can't assume array sizer
+                        line_num = reader.readLine().split(" ");
                         // pass this to the loadArray method to populate the array
                         array.loadArray(data);
 
@@ -101,7 +110,7 @@ public class TwoDimDriver extends Application {
     }
 
     /**
-     * @throws Exception handles genric exceptions
+     * @throws Exception              handles genric exceptions
      * @throws InputMismatchException fires if the user doesn't enter an int
      */
     public void doWork() throws Exception {
