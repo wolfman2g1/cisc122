@@ -1,6 +1,8 @@
 
 package com.rjones.cisc122;
 
+import java.util.Arrays;
+
 /**
  * This class handles all the business logic for the TwoDimDriver application
  * @author Ryan Jones
@@ -8,7 +10,7 @@ package com.rjones.cisc122;
  */
 public class TwoDimArray {
     private static double[][] twoDimArray;
-    private static double total = 0.0;
+    private  double total = 0.0;
     private static int row_size;
     private static int col_size;
 
@@ -34,11 +36,10 @@ public class TwoDimArray {
      *
      * @param array array of doubles
      */
-    public  void loadArray(double[] array) {
-        for (int row = 0; row < twoDimArray.length; row++) {
-            for (int col = 0; col < twoDimArray[row].length; col++) {
-                for (int test = 0; test < array.length; test++)
-                    twoDimArray[row][col] = array[test]; // this should assign the index at test to the index of the 2d array
+    public  void loadArray(double[][] array) {
+        for (int row = 0; row < array.length; row++) {
+            for (int col = 0; col < array[row].length; col++) {
+                twoDimArray[row][col] = array[row][col]; // this should assign the index at test to the index of the 2d array
             }
         }
     }
@@ -75,12 +76,16 @@ public class TwoDimArray {
 
             }
         }
-        double avg = sum / count;
-        return avg;
+        return sum / count;
     }
 
+    /**
+     *
+     * @param d column to search
+     * @return the total of all elements in column
+     */
     public  double getColumnTotal(int d) {
-        int colTotal = 0;
+        double colTotal = 0;
         for (int row = 0; row < twoDimArray.length; row++) {
             for (int col = 0; col < twoDimArray[row].length; col++) {
                 colTotal += twoDimArray[row][d]; // loop through the row but only look at the subscript for the column passed to the method
@@ -89,6 +94,19 @@ public class TwoDimArray {
         }
         return colTotal;
 
+    }
+
+    /**
+     * calculates the total of all elements in the row
+     * @param r which row to operate on
+     * @return the total of the row
+     */
+    public  double getRowTotal (int r) {
+        double rowTotal = 0.0;
+       for(int col = 0; col < twoDimArray[r].length; col++){
+           rowTotal += twoDimArray[r][col];
+       }
+       return rowTotal;
     }
 
     /**
@@ -151,7 +169,7 @@ public class TwoDimArray {
      * this method calculated the highest value in the array
      * @return min_value the lowest value in the array
      */
-    public  double  getArrayMinalue() {
+    public  double  getArrayMinValue() {
         final int ROW_SIZE = twoDimArray.length;
         double min_Value = 0;
         for (int i = 0; i < ROW_SIZE; i++) {
@@ -209,6 +227,36 @@ public class TwoDimArray {
         }
         return test;
     }
+
+public boolean replace(double find, double replace){
+        
+    for ( int row = 0; row < twoDimArray.length; row++){
+        for(int col = 0; col < twoDimArray[row].length; col++){
+            if(twoDimArray[row][col] == find){
+                twoDimArray[row][col] = replace;
+                return true;
+
+            }
+        }
+    }
+
+    return false;
+}
+
+public boolean replaceAll(double find, double replace){
+        boolean good = false;
+        for ( int row = 0; row < twoDimArray.length; row++){
+            for(int col = 0; col < twoDimArray[row].length; col++){
+                if ( twoDimArray[row][col] == find){
+                    twoDimArray[row][col] = replace;
+                      good = true;
+                }
+
+
+            }
+        }
+    return good;
+}
 
     /**
      * gets the size of the row

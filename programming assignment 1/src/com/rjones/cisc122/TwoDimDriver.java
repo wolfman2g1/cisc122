@@ -26,7 +26,7 @@ import java.util.Scanner;
  * load the array with values
  */
 public class TwoDimDriver extends Application {
-    private double[] data;
+    private double[][] data;
 
 
     public static void main(String[] args) {
@@ -63,18 +63,16 @@ public class TwoDimDriver extends Application {
                     String[] string_dim = reader.readLine().split(" ");
                     int[] int_dim = new int[]{Integer.parseInt(string_dim[0]), Integer.parseInt(string_dim[1])};
                     TwoDimArray array = new TwoDimArray(int_dim); // use the constructor to set this
-                    String line_num = reader.readLine(); // this contains the entire line
 
 
-                    while (line_num != null) {
+                    while (reader.readLine().split(" ") != null) {
                         /// Todo need to put the contents of the line into a column.
-                        for ( int i=0; i++){
-                            // may be use a counter to keep track of the line numbers and use as an index for the array
+                        for (int i = 0; i < reader.readLine().split(" ").length; i++) {
+                            for (int j = 0; j < i; j++) {
+                                data = new double[i][j];
+                            }
                         }
-                            // TODO this is wrong.
-                        data = new double[]{Double.parseDouble(line_num[0]), Double.parseDouble(line_num[1])}; // TODO change this to a loop because we can't assume array sizer
-                        line_num = reader.readLine().split(" ");
-                        // pass this to the loadArray method to populate the array
+
                         array.loadArray(data);
 
                     }
@@ -110,11 +108,15 @@ public class TwoDimDriver extends Application {
     }
 
     /**
-     * @throws Exception              handles genric exceptions
-     * @throws InputMismatchException fires if the user doesn't enter an int
+     * @throws Exception                      handles genric exceptions
+     * @throws InputMismatchException         fires if the user doesn't enter an int
+     * @throws ArrayIndexOutOfBoundsException if the number entered is longer than the array
      */
     public void doWork() throws Exception {
         TwoDimArray array2 = new TwoDimArray();
+        // get bounds of array
+        int row_size = array2.getRow();
+        int col_size = array2.getCol();
         // get the total elements in the array;
         double num_elements = array2.getTotal();
         // print the total to std out
@@ -127,22 +129,83 @@ public class TwoDimDriver extends Application {
 
         try {
 
-            int col_num = sc.nextInt();
-            double col_total = array2.getColumnTotal(col_num);
-            System.out.println(" The total of the column  is" + " " + col_total + " \n");
             // get the highest number in the row
+            System.out.println("Select a row for the lowest and highest number:" + "\n");
             int row_num = sc.nextInt();
             double highest_num = array2.getHighestInRow(row_num);
-            System.out.println(" The highest number in the row  is" + " " + highest_num + " \n");
+            double lowest_num = array2.getLowestInRow(row_num);
+            System.out.println(" The highest number in the row  is" + " " + highest_num + " \n" + " The lowest number is" + " " + lowest_num + "\n");
         } // end try block
         catch (InputMismatchException e) {
             System.out.println(" You entered the incorrect type, must be a number" + "\n");
             System.out.println(e.getMessage());
             sc.nextInt();
 
-        } // end catch
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Look like the number you entered is larger than the array");
+            System.out.println(" Row number cannot be larger than:" + " " + row_size + "\n" + " Column number cannot be larger than:" + " " + col_size + "\n");
+
+        } catch (Exception e) { // catch everything else
+            System.out.println(e.getMessage());
+        }// end catch
+
+
+        try {
+            // get total of all elements in column
+            System.out.println("Select a column number for total:" + "\n");
+            int col_num = sc.nextInt();
+            double col_total = array2.getColumnTotal(col_num);
+            System.out.println(" The total of the column  is" + " " + col_total + " \n");
+
+            // get total of all elements in row
+            System.out.println("Select a row number for total:" + "\n");
+            int row_num = sc.nextInt();
+            double row_total = array2.getRowTotal(row_num);
+            System.out.println(" The total of the row  is" + " " + row_total + " \n");
+
+        } catch (InputMismatchException e) {
+
+            System.out.println(" You entered the incorrect type, must be a number" + "\n");
+            System.out.println(" Row number cannot be larger than:" + " " + row_size + "\n" + " Column number cannot be larger than:" + " " + col_size + "\n");
+
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Look like the number you entered is larger than the array");
+            System.out.println(e.getMessage());
+        } catch (Exception e) { // catch everything else
+            System.out.println(e.getMessage());
+        }// end catch
+        // get the max value of the array
+        double max_value = array2.getArrayMaxValue();
+        System.out.println("The highest value in the array is" + " " + max_value + "\n");
+        //get the lowest value in the array
+        double min_value = array2.getArrayMinValue();
+        System.out.println("The lowest value in the array is" + " " + min_value + "\n");
+
+        double standard_dev = array2.calcStdDev();
+        System.out.println("The Standard Deviation is:" + " " + standard_dev + "\n");
+
+        try {
+            // check if value is in the array
+            System.out.println("Enter a number to search for:" + "\n");
+            double input = sc.nextDouble();
+
+            boolean check = array2.findValue(input);
+            if (check == true) {
+                System.out.println("The number you searched for is present in the array");
+            } else {
+                System.out.println("The number you searched for is  not present in the array");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println(" You entered the incorrect type, must be a number" + "\n");
+
+        } catch (Exception e){
+            System.out.println(e.getMessage());
 
     }
+
+
+}
 
 }
 
