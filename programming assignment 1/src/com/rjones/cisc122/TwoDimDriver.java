@@ -199,13 +199,55 @@ public class TwoDimDriver extends Application {
         } catch (InputMismatchException e) {
             System.out.println(" You entered the incorrect type, must be a number" + "\n");
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
 
+        }// end catch
+        try {
+            // find and replace first occurance
+            System.out.println("Enter a number to search  and replace:" + "\n");
+            double input = sc.nextDouble();
+            System.out.println("Enter a number you want to replace it with:" + "\n");
+            double replace = sc.nextDouble();
+            boolean check = array2.replace(input, replace);
+            if (check == true) {
+                System.out.println("Search and replace completed" + "\n");
+            }
+            else {
+                System.out.println("Operation failed. Does this number exist in the array?" + "\n");
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println(" You entered the incorrect type, must be a number" + "\n");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }// end catch
+        try {
+            // find and replace first occurance
+            System.out.println("Enter a number to search  and replace:" + "\n");
+            double input = sc.nextDouble();
+            System.out.println("Enter a number you want all occurrences to be replaced it with:" + "\n");
+            double replace = sc.nextDouble();
+            boolean check = array2.replaceAll(input, replace);
+            if (check == true) {
+                System.out.println("Search and replace completed" + "\n");
+            }
+            else {
+                System.out.println("Operation failed. Does this number exist in the array?" + "\n");
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println(" You entered the incorrect type, must be a number" + "\n");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }// end catch
+
+
     }
-
-
-}
 
 }
 
