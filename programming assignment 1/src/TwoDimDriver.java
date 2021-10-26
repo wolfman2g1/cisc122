@@ -1,6 +1,3 @@
-
-package com.rjones.cisc122;
-
 import javafx.application.*;
 import javafx.geometry.Pos;
 import javafx.scene.*;

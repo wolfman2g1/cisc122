@@ -1,6 +1,4 @@
-
-package com.rjones.cisc122;
-
+package application;
 import java.util.Arrays;
 
 /**
