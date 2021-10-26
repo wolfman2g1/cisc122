@@ -37,7 +37,8 @@ public class TwoDimDriver extends Application {
     }
 
     /**
-     * This sets up the stage
+     * This sets up the stage. this also opens up the file for reading and setting up the 2d array. assumes the values in the file are space separated
+     * will throw exception if not space separated
      *
      * @param stage sets up the stage to be displayed
      * @throws Exception             generic catch all for any exception not explicitly handled
