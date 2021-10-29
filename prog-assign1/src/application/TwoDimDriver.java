@@ -16,6 +16,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -59,8 +60,8 @@ public class TwoDimDriver extends Application {
                 String file = t1.getText();
 
 
-                BufferedReader reader = new BufferedReader(new FileReader(file)); // open the file
-                string_dim = reader.readLine().split(" ", 2);
+                Scanner sc = new Scanner(new BufferedReader(new FileReader(file))); // open the file
+                string_dim = sc.nextLine().split(" ", 2);
 
                 int[] int_dim = new int[]{Integer.parseInt(string_dim[0]), Integer.parseInt(string_dim[1])};
 
@@ -68,36 +69,35 @@ public class TwoDimDriver extends Application {
 
 
                 // Todo need to put the contents of the line into a column.
-                reader.mark(1); // mark the current spot in the file
-                String[] currentLine;
-                int height = array.getRow();
-                int width = array.getCol();
-                data = new double[height][width];
-                while ( (currentLine = reader.readLine().split(" ")) != null) {
 
+                data = new double[Integer.parseInt(string_dim[0])][Integer.parseInt(string_dim[1])];
 
-                    /// Todo need to put the contents of the line into a column.
-                    for (int i = 0; i < data.length; i++) {
-                        for (int j = 0; j <data[height].length; j++) {
-                          data[i][j] = Double.parseDouble(String.valueOf(currentLine));
-                          System.out.println(data[i][j]);
+                String line = sc.nextLine();
+                while (sc.hasNextLine()) {
+                    for (; line != null; line = sc.nextLine()) {
+                        String[] tokens = line.split(" ");
+                        int q = 0;
+                        for (int k = 0; k < tokens.length; k++) {
+                            data[q][k] = Double.parseDouble(tokens[k]);
                         }
-
+                        q++;
                     }
-                    //array.loadArray(data);
-
-
                 }
+
+                ///C:\Users\RyJon\Documents\java\prog-assign1\src\application\test.txt
+
+
+                array.loadArray(data);
+
+
 
             } catch (FileNotFoundException e) { // if the file isn't found send alert and exit
                 JOptionPane.showMessageDialog(null, "File Not found!");
 
                 System.exit(0);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
             } catch (Exception e) { // anything else wrong send and alert and exit
                 System.out.println(e.getMessage());
-                // JOptionPane.showMessageDialog(null, "Something went horribly wrong, exiting!");
+                 JOptionPane.showMessageDialog(null, "Something went horribly wrong, exiting!");
 
                 System.exit(0);
 
@@ -116,7 +116,7 @@ public class TwoDimDriver extends Application {
         stage.setWidth(400);
         stage.setScene(scene); // pass the scene to the stage
         stage.show(); // show the stage
-
+        doWork();
 
     }
 
