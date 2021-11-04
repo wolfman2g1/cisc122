@@ -52,12 +52,13 @@ public class TwoDimArray {
     public double getTotal() {
 
         // loop through the array and add the values
-        for (int row = 0; row < twoDimArray.length; row++) {
-            for (int col = 0; col < twoDimArray[col].length; col++) {
-                total += twoDimArray[row][col];
-            }
-        }
-        return total;
+       // for (int row = 0; row < twoDimArray.length; row++) {
+        //    for (int col = 0; col < twoDimArray[col].length; col++) {
+       //         total += twoDimArray[row][col];
+        //    }
+      //  }
+       // return total;
+        return -1;
     }
 
     /**
@@ -134,17 +135,18 @@ public class TwoDimArray {
      * @return lowest in row
      */
     public double getLowestInRow(int f) {
-        double lowest = twoDimArray[0][0]; // set to the first index and compare from there
-        final int ROW_SIZE = twoDimArray.length;
-        for (int i = 0; i < ROW_SIZE; i++) {
-            final int COL_SIZE = twoDimArray[f].length;
-            for (int j = 0; j < COL_SIZE; j++) {
-                if (twoDimArray[f][j] < lowest) {
-                    lowest = twoDimArray[f][j];
-                }
-            }
-        }
-        return lowest;
+   //     double lowest = twoDimArray[0][0]; // set to the first index and compare from there
+  //      final int ROW_SIZE = twoDimArray.length;
+     //   for (int i = 0; i < ROW_SIZE; i++) {
+   //         final int COL_SIZE = twoDimArray[f].length;
+     //       for (int j = 0; j < COL_SIZE; j++) {
+     //           if (twoDimArray[f][j] < lowest) {
+     //               lowest = twoDimArray[f][j];
+    //            }
+    //        }
+    //    }
+     //   return lowest;
+        return -1;
     }
 
     /**

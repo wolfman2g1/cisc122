@@ -58,20 +58,22 @@ public class TwoDimDriver extends Application {
         {
             try {
                 String file = t1.getText();
-
-
                 Scanner sc = new Scanner(new BufferedReader(new FileReader(file))); // open the file
-                string_dim = sc.nextLine().split(" ", 2);
+                String[] dim = sc.nextLine().split(" ");
 
+                                for ( int k =0; k < dim.length; k++){
+                                    System.out.println(dim[k]);
+                                    string_dim[k] = dim[k];
+                                }
+
+                //System.out.println(Arrays.deepToString(string_dim));
                 int[] int_dim = new int[]{Integer.parseInt(string_dim[0]), Integer.parseInt(string_dim[1])};
-
                 TwoDimArray array = new TwoDimArray(int_dim); // use the constructor to set this
 
 
                 // Todo need to put the contents of the line into a column.
 
-                data = new double[Integer.parseInt(string_dim[0])][Integer.parseInt(string_dim[1])];
-
+                data = new double[int_dim[0]][int_dim[1]];
                 String line = sc.nextLine();
                 while (sc.hasNextLine()) {
                     for (; line != null; line = sc.nextLine()) {
@@ -87,8 +89,9 @@ public class TwoDimDriver extends Application {
                 ///C:\Users\RyJon\Documents\java\prog-assign1\src\application\test.txt
 
 
-                array.loadArray(data);
-
+              //  array.loadArray(data);
+              //System.out.println(array.getRow());
+                System.out.println(array.getCol());
 
 
             } catch (FileNotFoundException e) { // if the file isn't found send alert and exit
@@ -97,7 +100,7 @@ public class TwoDimDriver extends Application {
                 System.exit(0);
             } catch (Exception e) { // anything else wrong send and alert and exit
                 System.out.println(e.getMessage());
-                 JOptionPane.showMessageDialog(null, "Something went horribly wrong, exiting!");
+                //JOptionPane.showMessageDialog(null, "Something went horribly wrong, exiting!");
 
                 System.exit(0);
 
@@ -116,7 +119,7 @@ public class TwoDimDriver extends Application {
         stage.setWidth(400);
         stage.setScene(scene); // pass the scene to the stage
         stage.show(); // show the stage
-        doWork();
+        //doWork();
 
     }
 

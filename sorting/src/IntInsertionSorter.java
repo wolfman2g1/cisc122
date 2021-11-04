@@ -5,14 +5,7 @@
 
 public class IntInsertionSorter
 {
-	public static void main(String[] args) {
-		int[] x = {1,-1,3,4,6,-2,0,0,8,-100,1,4,15};
-		insertionSortASC(x);
-		for (int i=0; i < x.length; i++) {
-		System.out.println(x[i] + " ");	
-		}
-	}
-
+	
    /**
       The insertionSort method performs an insertion sort on
       an int array. The array is sorted in ascending order.
