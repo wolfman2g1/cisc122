@@ -70,19 +70,26 @@ public class TwoDimDriver extends Application {
 				TwoDimArray array = new TwoDimArray(int_dim); // use the constructor to set this
 
 				data = new double[Integer.parseInt(string_dim[0])][Integer.parseInt(string_dim[1])];
-				String line = sc.nextLine();
-				while (sc.hasNextLine()) {
+				/*String line = sc.nextLine();
+
 					for (; line != null; line = sc.nextLine()) {
 						String[] tokens = line.split(" ");
 						int q = 0;
-						for (int k = 0; k < tokens.length; k++) {
+						for (int k = 0; k < data[q].length; k++) {
 							data[q][k] = Double.parseDouble(tokens[k]);
                             System.out.println(Arrays.deepToString(data));
 						}
 						//System.out.println(Arrays.deepToString(data));
 						q++;
-					}
-				}
+					}*/
+                int i =0;
+                while(sc.hasNext() && i < data.length){
+                    for ( int q=0; q < data[i].length; i++){
+                        data[i][q] = sc.nextDouble();
+                    }
+                    i++;
+                }
+                System.out.println(Arrays.deepToString(data));
 
 				/// C:\Users\RyJon\Documents\java\prog-assign1\src\application\test.txt
 
@@ -94,14 +101,14 @@ public class TwoDimDriver extends Application {
 				JOptionPane.showMessageDialog(null, "File Not found!");
 
 				System.exit(0);
-			} catch (ArrayIndexOutOfBoundsException e) {
+			} /* catch (ArrayIndexOutOfBoundsException e) {
 				System.out.println(" Arrayy Out of bounds, the arraay size is: " + e.getMessage());
-			} catch (Exception e) { // anything else wrong send and alert and exit
-				System.out.println("I hit the catch block");
+			} */   /* catch (Exception e) { // anything else wrong send and alert and exit
+				System.out.println("I hit the catch block" + " " + e.getMessage());
 				JOptionPane.showMessageDialog(null, "Something went horribly wrong, exiting!");
 
 				System.exit(0);
-			}
+			}*/
 
 		});
 
