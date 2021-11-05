@@ -20,28 +20,23 @@ public class TwoDimArray {
 
     }
 
-    /**
-     * takes an int array and sets up the twoDim array and initialized the row_size and col_size instance variables
-     *
-     * @param a int array to be used to set up 2D array
-     */
-    public TwoDimArray(int[] a) {
-        twoDimArray = new double[a[0]][a[1]];
-        row_size = a[0];
-        col_size = a[1];
-    }
+
 
     /**
      * takes a 1d array and maps it to a 2d arrway
      *
      * @param array array of doubles
      */
-    public void loadArray(double[][] array) {
+    public  TwoDimArray(double[][] array) {
+
+        twoDimArray = new double[array.length][array[0].length];
         for (int row = 0; row < array.length; row++) {
             for (int col = 0; col < array[row].length; col++) {
                 twoDimArray[row][col] = array[row][col]; // this should assign the index at test to the index of the 2d array
             }
         }
+        row_size = twoDimArray.length;
+        col_size = twoDimArray[0].length;
     }
 
     /**
@@ -52,13 +47,13 @@ public class TwoDimArray {
     public double getTotal() {
 
         // loop through the array and add the values
-       // for (int row = 0; row < twoDimArray.length; row++) {
-        //    for (int col = 0; col < twoDimArray[col].length; col++) {
-       //         total += twoDimArray[row][col];
-        //    }
-      //  }
-       // return total;
-        return -1;
+        for (int row = 0; row < twoDimArray.length; row++) {
+            for (int col = 0; col < twoDimArray[col].length; col++) {
+                total += twoDimArray[row][col];
+            }
+        }
+        return total;
+
     }
 
     /**
@@ -228,11 +223,11 @@ public class TwoDimArray {
             final int COL_SIZE = twoDimArray[i].length;
             for (int j = 0; j < COL_SIZE; j++) {
                 if (twoDimArray[i][j] == check) {
-                    test = true;
+                    return true;
                 }
             }
         }
-        return test;
+        return false;
     }
 
     public boolean replace(double find, double replace) {
