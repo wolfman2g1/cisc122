@@ -8,7 +8,6 @@ package application;
  */
 public class TwoDimArray {
 	private static double[][] twoDimArray;
-	private double total = 0.0;
 
 	/**
 	 * takes a 1d array and maps it to a 2d arrway
@@ -33,6 +32,7 @@ public class TwoDimArray {
 	 * @return the total for all values in the array
 	 */
 	public double getTotal() {
+		double total = 0.0;
 
 		// loop through the array and add the values
 		for (int row = 0; row < twoDimArray.length; row++) {

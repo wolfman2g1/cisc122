@@ -285,7 +285,7 @@ public class TwoDimDriver extends Application {
 					String searchedNum = findALL.getText();
 					String replacedNum = replaceAll.getText();
 					if (!searchedNum.matches("[a-zA-Z]*")) { // number only
-						if (array.replace(Double.parseDouble(searchedNum), Double.parseDouble(replacedNum))) {
+						if (array.replaceAll(Double.parseDouble(searchedNum), Double.parseDouble(replacedNum))) {
 							findALLLabel.setText("All instances of " + searchedNum + "Have been replaced with" +replacedNum );
 						} else {
 							findALLLabel.setText("Operation failed number not found");
