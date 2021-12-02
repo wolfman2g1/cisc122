@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class EmployeeMap {
+  Map <String, Employee> employeeMap = new HashMap<>();
   public static void main(String args[]){
       String file;
       try {
@@ -16,7 +17,9 @@ public class EmployeeMap {
           while (sc.hasNext()){
               String name = sc.next();
               int id = sc.nextInt();
-            Employee e = new Employee(id,name);
+            Employee e = new Employee(name, id);
+            insert(e);
+            System.out.println(getEmployee(e.name));
 
           }
       }
@@ -26,10 +29,16 @@ public class EmployeeMap {
 
   }
 
-  private Map<Integer,Employee> mappedEmployee(Employee e) {
-        Map <Integer, Employee> employeeMap = new HashMap<>();
-        employeeMap.put(e.id,e.name);
-        return employeeMap;
+ public void insert(Employee e){
+   employeeMap.put(e.name,e);
+ }
+  public Employee getEmployee( String i){
+    if(employeeMap.containsKey(i)){
+      return employeeMap.get(i);
     }
-
+    else {
+      return null;
+    }
+    
+  }
 }
