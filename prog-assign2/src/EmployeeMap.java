@@ -1,5 +1,6 @@
 
-public class EmployeeMap  {
+public class EmployeeMap {
+  public Map currentMap = 
   public static void main(String args[]){
     Employee e1 = new Employee(119930, "ted");
       
