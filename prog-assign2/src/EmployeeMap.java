@@ -14,7 +14,9 @@ public class EmployeeMap {
           file = JOptionPane.showInputDialog("Enter file path");
           Scanner sc = new Scanner(new BufferedReader(new FileReader(file)));
           while (sc.hasNext()){
-              Employee e = new Employee( sc.nextLine().split(","));
+              String name = sc.next();
+              int id = sc.nextInt();
+            Employee e = new Employee(id,name);
 
           }
       }
