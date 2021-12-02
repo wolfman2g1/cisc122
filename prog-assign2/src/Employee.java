@@ -7,7 +7,7 @@ public class Employee {
      * @param n
      * @param i
      */
-    public Employee (Employee n, int i){
+    public Employee (String n, int i){
         this.name = n;
         this.id = i;
 
