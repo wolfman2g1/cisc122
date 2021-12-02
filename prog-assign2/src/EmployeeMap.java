@@ -6,22 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class EmployeeMap extends Employee {
-  public static void main(String args[]) throws Exception{
-      String file;
-      try {
-          file = JOptionPane.showInputDialog("Enter file path");
-          Scanner sc = new Scanner(new BufferedReader(new FileReader(file)));
-          while (sc.hasNext()){
-           String[] mapped = sc.nextLine().split(",");
-          }
-      }
-      catch (IOException e){
-
-      }
+public class EmployeeMap {
+  public Map currentMap =
+  public static void main(String args[]){
+    Employee e1 = new Employee(119930, "ted");
 
   }
-    public Map<Integer,Employee> mappedEmployee(Employee e) {
+
+  private Map<Integer,Employee> mappedEmployee(Employee e) {
         Map <Integer, Employee> employeeMap = new HashMap<>();
         employeeMap.put(e.id,e.name);
         return employeeMap;
