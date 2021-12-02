@@ -12,8 +12,9 @@ public class Employee {
         this.id = i;
 
     }
-    public Employee(){
 
+    public String toString(){
+        return this.name + " " + this.id;
     }
 
 
