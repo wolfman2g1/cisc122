@@ -1,6 +1,6 @@
 public class Employee {
     protected Integer id;
-    protected Employee name;
+    protected String name;
 
     /**
      * Constructor to create employee
