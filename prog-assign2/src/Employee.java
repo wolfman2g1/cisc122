@@ -13,6 +13,10 @@ public class Employee {
 
     }
 
+    /**
+     * to string employee
+     * @return returns the name and id
+     */
     public String toString(){
         return this.name + " " + this.id;
     }

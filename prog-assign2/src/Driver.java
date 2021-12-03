@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -29,8 +30,11 @@ public class Driver {
             // infinite loop to keep the program going until exit by user
             while (true) {
                 String search = JOptionPane.showInputDialog("Search for a name");
+                if ("done".equals(search)){ // exit is the user types this in
+                    System.exit(0);
+                }
 
-                if (!search.matches("[a-zA-Z]*")) { // check for string
+               else if (!search.matches("[a-zA-Z]*")) { // check for string
                     throw new InputMismatchException();
                 } else {
 
