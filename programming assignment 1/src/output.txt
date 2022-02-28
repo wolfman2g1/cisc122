@@ -1,0 +1,5 @@
+False  if and only if a is true and b is false false
+True  if and only if a and b are false true
+True  if and only if a and b are equal true
+False  if and only if a and b are true true
+False  if and only if a and b are true false

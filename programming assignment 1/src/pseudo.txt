@@ -1,0 +1,24 @@
+
+implication(a,b)
+    check if b is false
+    if b is false then return false
+    else return true
+
+xor(a,b)
+    check  if a and b are true
+    if both are true return false
+    else return true
+
+nand(a,b)
+    check  if a and b are true
+    if both are tru return false
+    else return true
+
+eq(a,b)
+    compare a and b 
+    if result is 0 return true
+    else return false
+nor(a,b)
+    check and and b
+    if a and b are false return true
+    else return false
